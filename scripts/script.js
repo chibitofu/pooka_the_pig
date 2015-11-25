@@ -28,6 +28,10 @@ $(document).ready(function(){
     $('.bossPoints').text("Boss" + " " + bossPoints);
     $('.playerPoints').text("Player" + " " + playerPoints);
     $('#restart').css({'display' : 'none'});
+    clearTimeout(timeOutIdOne);
+    clearTimeout(timeOutIdTwo);
+    clearTimeout(timeOutIdThree);
+    clearTimeout(timeOutIdFour);
     playerPoints = 0;
     bossPoints = 0;
     startGame();
@@ -923,10 +927,6 @@ function versusModeStartButton(){
   $('.versusModeStart').off().on('click', function(){
   $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
   $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
-  clearTimeout(timeOutIdOne);
-  clearTimeout(timeOutIdTwo);
-  clearTimeout(timeOutIdThree);
-  clearTimeout(timeOutIdFour);
   fightMode = "versus";
   currentBossRoom = "versusRoom";
   playerPoints = 0;
