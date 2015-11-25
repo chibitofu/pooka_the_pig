@@ -12,12 +12,19 @@
     <div class="container">
       <section class="row topRow">
         <div class="col-xs-0 col-sm-0 col-md-0 col-lg-0 topRowLeft">
-
+          <audio id="buttonSound">
+            <source src="sounds/buttonClick.wav" type="audio/wav"></source>
+          </audio>
+          <audio id="coinSound">
+            <source src="sounds/coin.wav" type="audio/wav"></source>
+          </audio>
+          <audio id="musicBG" src="sounds/bgMusic.mp3" type="audio/mp3" autoplay="true" mute="false" loop="true"></audio>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 topRowMidLeft restartButton">
           <button id="restart" class="btn-sm btn-default pull-right" type="submit">Restart</button>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center">
+          <button id="muteBG" class="pull-right btn-sm btn-default">Mute</button>
           <button class="btn-sm btn-success versusModeStart">Versus Mode</button>
             <p class="playerOneScore versusScore versusScoringArea">Player1<span class="playerOneScoreBox">0</span><span class="playerTwoScore versusScore">Player2<span class="playerTwoScoreBox">0</span></span></p>
         </div>
@@ -56,13 +63,14 @@
             <button class="btn-lg btn-primary glyphicon glyphicon-tint playerMove"></button>
             <button class="btn-lg btn-warning fightStart flash">FIGHT!</button>
             <button class="btn-lg btn-success continue">Continue</button>
-            <button class="btn-lg btn-danger flash startGame">START</button>
+            <button id="startButton" class="btn-lg btn-danger flash startGame">START</button>
             <div class="text-right scoreBoard">
               <p class="playerPoints">Player 0</p>
               <p class="bossPoints">Boss 0</p>
             </div>
             <!-- Versus Mode Moves -->
-            <div class="text-center"><button class="btn-md btn-danger versusModeFight ">FIGHT!</button>
+            <div class="text-center">
+              <button class="btn-md btn-danger versusModeFight ">FIGHT!</button>
             </div>
             <div id="versusMoves" class="versusPlayerText">
               <p>
