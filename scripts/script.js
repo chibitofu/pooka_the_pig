@@ -90,7 +90,7 @@ var oneCtwo = "The End";
 //Tile 2A//
 var twoAmain = "What delicious smells! The fragrance of banana and fish is in the air, and Pooka can see lights and hear chanting in the distance.";
 var twoAone = "Investigate and see if the folks ahead can help...";
-var twoAtwo = "2B Pooka doesn't want any trouble. Take a side path into the trees...";
+var twoAtwo = "Pooka doesn't want any trouble. Take a side path into the trees...";
 
 //Tile 2B//
 var twoBmain = "You've stumbled into a heiau, a Hawaiian burial site. It is completely silent here. The hairs on your ears stand up.";
