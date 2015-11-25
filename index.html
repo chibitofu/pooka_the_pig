@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Pooka The Pig</title>
+    <link href='https://fonts.googleapis.com/css?family=Ceviche+One|Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+      <section class="row topRow">
+        <div class="col-xs-0 col-sm-0 col-md-0 col-lg-0 topRowLeft">
+
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 topRowMidLeft restartButton">
+          <button id="restart" class="btn-sm btn-default pull-right" type="submit">Restart</button>
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-center">
+          <button class="btn-sm btn-success versusModeStart">Versus Mode</button>
+            <p class="playerOneScore versusScore versusScoringArea">Player1<span class="playerOneScoreBox">0</span><span class="playerTwoScore versusScore">Player2<span class="playerTwoScoreBox">0</span></span></p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 topRowMidRigth">
+          <div class="scoringArea pull-left">
+            <p class="scoreScore">Score</p>
+            <p class="scoreBox">0</p>
+          </div>
+        </div>
+        <div class="col-xs-0 col-sm-0 col-md-0 col-lg-0 topRowRigth">
+
+        </div>
+      </section>
+      <section class="row midRow">
+        <div class="col-xs-0 col-sm-1 col-md-2 col-lg-2 midRowLeft">
+
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 midRowMid">
+          <div id="mainText">
+
+          </div>
+          <div class="text-center tiles">
+          <p class="text-center threeTile">Jan</p>
+          <p class="text-center twoTile">Ken</p>
+          <p class="text-center oneTile">Po</p>
+          <p class="text-center fightTile">Fight!</p>
+          </div>
+          <div id="mainImage" class="text-center">
+            <div class="text-left fightKey">
+              <p>Fire > Grass</p>
+              <p>Grass > Water</p>
+              <p>Water > Fire</p>
+            </div>
+            <button class="btn-lg btn-danger glyphicon glyphicon-fire playerMove"></button>
+            <button class="btn-lg btn-success glyphicon glyphicon-leaf playerMove"></button>
+            <button class="btn-lg btn-primary glyphicon glyphicon-tint playerMove"></button>
+            <button class="btn-lg btn-warning fightStart flash">FIGHT!</button>
+            <button class="btn-lg btn-success continue">Continue</button>
+            <button class="btn-lg btn-danger flash startGame">START</button>
+            <div class="text-right scoreBoard">
+              <p class="playerPoints">Player 0</p>
+              <p class="bossPoints">Boss 0</p>
+            </div>
+            <!-- Versus Mode Moves -->
+            <div class="text-center"><button class="btn-md btn-danger versusModeFight ">FIGHT!</button>
+            </div>
+            <div id="versusMoves" class="versusPlayerText">
+              <p>
+              P1
+              <button class="btn-xs btn-danger glyphicon glyphicon-fire playerOneMove"><span class="letter"> Q</span></button>
+              <button class="btn-xs btn-success glyphicon glyphicon-leaf playerOneMove"><span class="letter"> W</span></button>
+              <button class="btn-xs btn-primary glyphicon glyphicon-tint playerOneMove"><span class="letter"> E</span></button>
+              P2
+              <button class="btn-xs btn-danger glyphicon glyphicon-fire playerTwoMove"><span class="letter"> I</span></button>
+              <button class="btn-xs btn-success glyphicon glyphicon-leaf playerTwoMove"><span class="letter"> O</span></button>
+              <button class="btn-xs btn-primary glyphicon glyphicon-tint playerTwoMove"><span class="letter"> P</span></button>
+              </p>
+
+              </div>
+              <form class="versusForm">
+                <input id="setFocus" class="versusKey" type="text" value="">
+              </form>
+            <!-- Versus Mode Moves End-->
+          </div>
+        </div>
+        <div class="col-xs-0 col-sm-1 col-md-2 col-lg-2 midRowRigth">
+
+        </div>
+      </section>
+      <section class="row botRow">
+        <div class="col-xs-0 col-sm-1 col-md-2 col-lg-2 row-eq-height botRowLeft">
+
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 row-eq-height botRowMidLeft">
+          <button id="optionOne" class="btn-lg btn-default  text-center" type="submit" disabled="disabled">
+            Pooka The Pig
+          </button>
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-4 row-eq-height botRowMidRight">
+          <button id="optionTwo" class="btn-lg btn-default text-center" type="submit" disabled="disabled">
+            Adventures in Hawaii
+          </button>
+        </div>
+        <div class="col-xs-0 col-sm-1 col-md-2 col-lg-2 row-eq-height botRowRigth">
+
+        </div>
+      </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <footer class="text-center credits">Created by Erin Moon &copy;2015</footer>
+  </body>
+</html>
