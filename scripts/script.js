@@ -594,7 +594,7 @@ function fiveAwin(){
   $('.playerMove').css({"display" : "none"});
   $('.fightKey').css({'display' : "none"});
   $('.scoreBoard').css({'display' : "none"});
-  $('.continue').css({"display" : "inline-block"});
+  $('.continue').hide().
   $('#mainText').text(fiveAwinMain);
   $('#optionOne').text(fiveAwinOne);
   $('#optionTwo').text(fiveAwinTwo);
@@ -605,7 +605,7 @@ function fiveAlose(){
   $('.playerMove').css({"display" : "none"});
   $('.fightKey').css({'display' : "none"});
   $('.scoreBoard').css({'display' : "none"});
-  $('.continue').css({"display" : "inline-block"});
+  $('.continue').hide();
   $('#mainText').text(fiveAloseMain);
   $('#optionOne').text(fiveAloseOne);
   $('#optionTwo').text(fiveAloseTwo);
@@ -790,7 +790,7 @@ function bossRoomWin(){
       threeAwin();
     } else if (currentBossRoom === "twoCboss"){
       twoCwin();
-    } else if (currentBossRoom === "fourAboss"){
+    } else if (currentBossRoom === "fiveAboss"){
       fiveAwin();
     } else if (currentBossRoom === "versusRoom"){
       versusEnd();
@@ -824,7 +824,7 @@ function bossRoomLose(){
       threeAlose();
     } else if (currentBossRoom === "twoCboss") {
       twoD();
-    } else if (currentBossRoom === "fourAboss"){
+    } else if (currentBossRoom === "fiveAboss"){
       fiveAlose();
     } else if (currentBossRoom === "versusRoom"){
       versusEnd();

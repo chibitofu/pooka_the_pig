@@ -551,7 +551,11 @@ p.versusModeFight {
 }
 
 /* iPhone6 Plus*/
-@media (min-width: 414px) and (max-width: 736px) {
+@media (min-width: 413px) and (max-width: 736px) {
+  .topRow {
+    margin-top: 5px;
+  }
+
   #mainText{
   font-size: 12px;
   height: 290px;
@@ -581,9 +585,10 @@ p.versusModeFight {
   }
 
   #restart {
-    font-size: 10px;
-    width: 100px;
-    margin-bottom: 5;
+    font-size: 8px;
+    width: 75px;
+    margin-top: 5px;
+    margin-bottom: 0;
   }
   .startGame {
     font-size: 30px;
