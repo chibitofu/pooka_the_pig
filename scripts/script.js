@@ -37,29 +37,26 @@ $(document).ready(function(){
     versusModeStartButton();
 
 //Music code. Mahalo to Mazedude on http://ocremix.org/ for the BG audio.//
-  function coinPress(){
-    var coinSound = document.getElementById("coinSound");
-    coinSound.current_time = 0;
-    coinSound.load();
-    coinSound.play();
-  }
 
-  function buttonPress() {
-    var buttonSound = document.getElementById("buttonSound");
-    buttonSound.current_time = 0;
-    buttonSound.load();
-    buttonSound.play();
-  }
+  // function coinPress(){
+  //   var coinSound = document.getElementById("coinSound");
+  //   coinSound.current_time = 0;
+  //   coinSound.load();
+  //   coinSound.play();
+  // }
 
-  $('#startButton').click(function(){
-    coinPress();
-  });
+  // function buttonPress() {
+  //   var buttonSound = document.getElementById("buttonSound");
+  //   buttonSound.current_time = 0;
+  //   buttonSound.load();
+  //   buttonSound.play();
+  // }
+
+  // $('#startButton').click(function(){
+  //   coinPress();
+  // });
 
   $('#restart').click(function(){
-    buttonPress();
-  });
-
-  $('.playerMove').click(function(){
     buttonPress();
   });
 
@@ -70,11 +67,28 @@ $(document).ready(function(){
       $('#musicBG').prop('muted', true);
     }
   });
-  $('#musicBG').prop('volume', 0.3);
+  $('#musicBG').prop('volume', 0.6);
+  $('#coinSoud').prop('volume', 0.5);
 });
 //End of preloaded functions.//
 
+//Button click sound functions.//
+function buttonPress() {
+  var buttonSound = document.getElementById("buttonSound");
+  buttonSound.current_time = 0;
+  buttonSound.load();
+  buttonSound.play();
+}
 
+function coinPress(){
+  var coinSound = document.getElementById("coinSound");
+  coinSound.current_time = 0;
+  coinSound.load();
+  coinSound.play();
+}
+//End of button sounds.//
+
+//Story variables.//
 var playerScore = 0;
 
 //Boss Battle Variables//
@@ -209,6 +223,7 @@ function startGame(){
     $('#mainText').css({'background-image' : "none"});
     $('.startGame').css({'display' : 'none'});
     $('.versusModeStart').hide();
+    coinPress();
     oneA();
   });
 }
@@ -221,6 +236,7 @@ function oneA(){
     $('#optionOne').text(oneBone);
     $('#optionTwo').text(oneBtwo);
     $('.scoreBox').text(playerScore -= 5);
+    buttonPress();
     oneB();
     return;
   })){
@@ -231,6 +247,7 @@ function oneA(){
     $('#optionOne').text(twoAone);
     $('#optionTwo').text(twoAtwo);
     $('.scoreBox').text(playerScore += 15);
+    buttonPress();
     twoA();
     return;
   }));
@@ -268,13 +285,15 @@ function oneB(){
   $('#optionTwo').prop('disabled', true);
   $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
   $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
+
   $('.fightStart').off().on('click', function(){
-  $('#optionOne').text("Boss Moves");
-  $('#optionTwo').text("Player Moves");
-  $('#mainText').text("");
-  $('#mainText').css({'background-image' : 'url(http://i.imgur.com/YbfNdvJ.gif)'});
-  currentBossRoom = "oneBboss";
-  startFight();
+    $('#optionOne').text("Boss Moves");
+    $('#optionTwo').text("Player Moves");
+    $('#mainText').text("");
+    $('#mainText').css({'background-image' : 'url(http://i.imgur.com/YbfNdvJ.gif)'});
+    currentBossRoom = "oneBboss";
+    buttonPress();
+    startFight();
   });
 }
 
@@ -299,6 +318,7 @@ function oneBwin(){
     $('#mainText').text(threeBmain);
     $('#optionOne').text(threeBone);
     $('#optionTwo').text(threeBtwo);
+    buttonPress();
     threeB();
   });
 }
@@ -325,6 +345,7 @@ function twoA(){
     $('#optionOne').text(threeAone);
     $('#optionTwo').text(threeAtwo);
     $('.scoreBox').text(playerScore += 25);
+    buttonPress();
     threeA();
     return;
   })){
@@ -335,6 +356,7 @@ function twoA(){
     $('#optionOne').text(twoBone);
     $('#optionTwo').text(twoBtwo);
     $('.scoreBox').text(playerScore -= 15);
+    buttonPress();
     twoB();
     return;
   }));
@@ -348,6 +370,7 @@ function twoB(){
     $('#optionOne').text(fourAone);
     $('#optionTwo').text(fourAtwo);
     $('.scoreBox').text(playerScore += 26);
+    buttonPress();
     fourA();
     return;
   })){
@@ -358,6 +381,7 @@ function twoB(){
     $('#optionOne').text(twoCone);
     $('#optionTwo').text(twoCtwo);
     $('.scoreBox').text(playerScore -= 27);
+    buttonPress();
     twoC();
     return;
   }));
@@ -404,6 +428,7 @@ function twoC(){
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     currentBossRoom = "twoCboss";
+    buttonPress();
     startFight();
   });
 }
@@ -431,6 +456,7 @@ function twoCwin(){
     $('#optionOne').text(fourBone);
     $('#optionTwo').text(fourBtwo);
     $('.continue').hide();
+    buttonPress();
     fourB();
   });
 }
@@ -483,6 +509,7 @@ function threeA(){
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     currentBossRoom = "threeAboss";
+    buttonPress();
     startFight();
   });
 }
@@ -509,6 +536,7 @@ function threeAwin(){
     $('#optionOne').text(fourAone);
     $('#optionTwo').text(fourAtwo);
     $('.continue').css({'display' : 'none'});
+    buttonPress();
     fourA();
   });
 }
@@ -530,6 +558,7 @@ function threeAlose(){
     $('#mainText').text(threeBmain);
     $('#optionOne').text(threeBone);
     $('#optionTwo').text(threeBtwo);
+    buttonPress();
     threeB();
   });
 }
@@ -541,6 +570,7 @@ function threeB(){
       $('#optionOne').text(threeCone);
       $('#optionTwo').text(threeCtwo);
       $('.scoreBox').text(playerScore -= 150);
+      buttonPress();
       threeC();
       return;
   }))
@@ -549,6 +579,7 @@ function threeB(){
       $('#optionOne').text(fourBone);
       $('#optionTwo').text(fourBtwo);
       $('.scoreBox').text(playerScore += 66);
+      buttonPress();
       fourB();
       return;
   }));
@@ -572,6 +603,7 @@ function fourA(){
     $('#optionOne').text(fiveAone);
     $('#optionTwo').text(fiveAtwo);
     $('.scoreBox').text(playerScore += 241);
+    buttonPress();
     fiveA();
     return;
   })){
@@ -582,6 +614,7 @@ function fourA(){
     $('#optionOne').text(fourBone);
     $('#optionTwo').text(fourBtwo);
     $('.scoreBox').text(playerScore += 256);
+    buttonPress();
     fourB();
     return;
   }));
@@ -623,6 +656,7 @@ function fiveA(){
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/GvpUFrF.gif)'});
     currentBossRoom = "fiveAboss";
+    buttonPress();
     startFight();
   });
 }
@@ -658,6 +692,7 @@ var startFight = function(){
   $('.scoreBoard').css({'display' : "inline-block"});
 
   $('.glyphicon-fire').off().on('click', function(){
+    buttonPress();
     playerMove = "fire";
     $('#optionTwo').text(playerMove);
     $('#optionOne').text("");
@@ -666,6 +701,7 @@ var startFight = function(){
   });
 
   $('.glyphicon-tint').off().on('click', function(){
+    buttonPress();
     playerMove = "water";
     $('#optionTwo').text(playerMove);
     $('#optionOne').text("");
@@ -674,6 +710,7 @@ var startFight = function(){
   });
 
   $('.glyphicon-leaf').off().on('click', function(){
+    buttonPress();
     playerMove = "grass";
     $('#optionTwo').text(playerMove);
     $('#optionOne').text("");
@@ -815,6 +852,7 @@ function bossRoomWin(){
   $('#versusMoves').css({'display' : "none"});
 
   $('.continue').off().on('click', function(){
+    buttonPress();
     $('#mainText').css({'background-image' : 'none'});
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/kTQOpBQ.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/HAe2siu.gif)'});
@@ -849,6 +887,7 @@ function bossRoomLose(){
   $('.continue').css({"display" : "inline-block"});
 
   $('.continue').off().on('click', function(){
+    buttonPress();
     $('#mainText').css({'background-image' : 'none'});
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/kTQOpBQ.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/HAe2siu.gif)'});
@@ -901,6 +940,7 @@ function versusModeStartButton(){
   $('#optionTwo').prop('disabled', true);
   $('#optionOne').text("Versus Mode");
   $('#optionTwo').text("Versus Mode");
+    coinPress();
     versusFight();
 
   });
@@ -919,6 +959,7 @@ function versusFight(){
     $('.tiles').show();
     $('#mainText').hide();
     $('#setFocus').focus();
+      buttonPress();
       versusStart();
 
   });
