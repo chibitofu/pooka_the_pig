@@ -6,7 +6,7 @@ $(document).ready(function(){
     $('#mainText').show();
     $('.scoreBox').text(playerScore);
     $('#mainText').text("");
-    $('.startGame').css({'display' : "inline-block"});
+    $('.startGame').css({'display' : 'inline-block'});
     $('#optionOne').prop('disabled', true);
     $('#optionTwo').prop('disabled', true);
     $('#optionOne').text("Pooka the Pig");
@@ -36,8 +36,44 @@ $(document).ready(function(){
     startGame();
     versusModeStartButton();
 
+//Music code. Mahalo to Mazedude on http://ocremix.org/ for the BG audio.//
+  function coinPress(){
+    var coinSound = document.getElementById("coinSound");
+    coinSound.current_time = 0;
+    coinSound.load();
+    coinSound.play();
+  }
+
+  function buttonPress() {
+    var buttonSound = document.getElementById("buttonSound");
+    buttonSound.current_time = 0;
+    buttonSound.load();
+    buttonSound.play();
+  }
+
+  $('#startButton').click(function(){
+    coinPress();
+  });
+
+  $('#restart').click(function(){
+    buttonPress();
+  });
+
+  $('.playerMove').click(function(){
+    buttonPress();
+  });
+
+  $('#muteBG').click(function(){
+    if ($('#musicBG').prop('muted')){
+      $('#musicBG').prop('muted', false);
+    } else {
+      $('#musicBG').prop('muted', true);
+    }
+  });
+  $('#musicBG').prop('volume', 0.3);
 });
 //End of preloaded functions.//
+
 
 var playerScore = 0;
 
@@ -171,7 +207,7 @@ function startGame(){
     $('#optionTwo').text(oneAtwo);
     $('#restart').css({'display' : 'inline-block'});
     $('#mainText').css({'background-image' : "none"});
-    $('.startGame').hide();
+    $('.startGame').css({'display' : 'none'});
     $('.versusModeStart').hide();
     oneA();
   });
@@ -465,13 +501,14 @@ function threeAwin(){
   $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/zyFW94Z.gif)'});
 
   $('.continue').off().on('click', function(){
-    $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/V2qlxRO.gif)'});
+    $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/kTQOpBQ.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/HAe2siu.gif)'});
     $('#optionOne').prop('disabled', false);
     $('#optionTwo').prop('disabled', false);
     $('#mainText').text(fourAmain);
     $('#optionOne').text(fourAone);
     $('#optionTwo').text(fourAtwo);
+    $('.continue').css({'display' : 'none'});
     fourA();
   });
 }
@@ -594,7 +631,7 @@ function fiveAwin(){
   $('.playerMove').css({"display" : "none"});
   $('.fightKey').css({'display' : "none"});
   $('.scoreBoard').css({'display' : "none"});
-  $('.continue').css({"display" : "inline-block"});
+  $('.continue').hide().
   $('#mainText').text(fiveAwinMain);
   $('#optionOne').text(fiveAwinOne);
   $('#optionTwo').text(fiveAwinTwo);
@@ -781,7 +818,7 @@ function bossRoomWin(){
     $('#mainText').css({'background-image' : 'none'});
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/kTQOpBQ.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/HAe2siu.gif)'});
-    $('.continue').hide();
+    $('.continue').css({'display' : 'none'});
     $('.bossPoints').text("Boss" + " " + bossPoints);
     $('.playerPoints').text("Player" + " " + playerPoints);
     if (currentBossRoom === "oneBboss"){
@@ -790,7 +827,7 @@ function bossRoomWin(){
       threeAwin();
     } else if (currentBossRoom === "twoCboss"){
       twoCwin();
-    } else if (currentBossRoom === "fourAboss"){
+    } else if (currentBossRoom === "fiveAboss"){
       fiveAwin();
     } else if (currentBossRoom === "versusRoom"){
       versusEnd();
@@ -815,7 +852,7 @@ function bossRoomLose(){
     $('#mainText').css({'background-image' : 'none'});
     $('#optionOne').css({'background-image' : 'url(http://i.imgur.com/kTQOpBQ.gif)'});
     $('#optionTwo').css({'background-image' : 'url(http://i.imgur.com/HAe2siu.gif)'});
-    $('.continue').hide();
+    $('.continue').css({'display' : 'none'});
     $('.bossPoints').text("Boss" + " " + bossPoints);
     $('.playerPoints').text("Player" + " " + playerPoints);
     if (currentBossRoom === "oneBboss"){
@@ -824,7 +861,7 @@ function bossRoomLose(){
       threeAlose();
     } else if (currentBossRoom === "twoCboss") {
       twoD();
-    } else if (currentBossRoom === "fourAboss"){
+    } else if (currentBossRoom === "fiveAboss"){
       fiveAlose();
     } else if (currentBossRoom === "versusRoom"){
       versusEnd();
