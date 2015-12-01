@@ -113,7 +113,6 @@ var currentBossRoom;
 var fightMode;
 
 //VersusMode Variables.//
-var versusModeMain = "<p>Versus Mode</p>";
 
 var timeOutIdOne;
 var timeOutIdTwo;
